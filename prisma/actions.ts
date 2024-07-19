@@ -21,8 +21,8 @@ export async function createMessage(formData: FormData) {
     const newMessage = await prisma.message.create({
       data: { name, message },
     })
-    return { success: true, data: newMessage }
+    return { success: true, data: result.data }
   } catch (error) {
-    return { success: false, error: error.message }
+    return { success: false, error: result.error}
   }
 }
